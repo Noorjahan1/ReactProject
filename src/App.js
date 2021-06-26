@@ -1,24 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import Home from "./home/home";
+import Nav from "./Navbar/navbar";
+import {
+  Switch,
+  Route
+} from "react-router-dom";
+import TableOne from './table1/table';
+import TableTwo from './table2/table2';
+import Provile from './context/profile';
+import Profile from './profile/profile';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+ 
+     
+     <Nav/>
+    
+    <Switch>
+         
+          <Route path="/home">
+             <Provile>
+            <Home />
+            </Provile>
+          </Route>
+          
+          <Route path="/table1">
+            < TableOne/>
+          </Route>
+          
+          <Route path="/profile">
+          <Provile>
+           <Profile/>
+           </Provile>
+          </Route>
+          
+            
+          <Route path="/table2">
+            < TableTwo/>
+          </Route>
+          
+      </Switch>
+   
+    </>
+   
   );
 }
 
